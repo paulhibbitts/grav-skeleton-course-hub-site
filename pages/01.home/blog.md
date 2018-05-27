@@ -3,7 +3,7 @@ title: Home
 body_classes: 'header-image fullwidth'
 content:
     items: '@self.children'
-    limit: 3
+    limit: 5
     order:
         by: date
         dir: desc
