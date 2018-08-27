@@ -1,4 +1,4 @@
-{% set feed_url = blog.url == '/' or blog.url == base_url_relative ? (base_url_relative~'/'~blog.slug) : blog.url %}
+{% set feed_url = blog.url == '/' or blog.url == base_url_relative ? (base_url_relative ~ '/' ~ blog.slug) : blog.url %}
 {% set new_base_url = blog.url == '/' ? '' : blog.url %}
 
 {% if config.plugins.simplesearch.enabled %}
@@ -20,6 +20,11 @@
 </div>
 {% endif %}
 
+<div class="sidebar-content">
+    <h5>Some Text Widget</h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+</div>
+
 {% if config.plugins.taxonomylist.enabled %}
 <div class="sidebar-content">
     <h5>Popular Tags</h5>
@@ -30,7 +35,7 @@
 {% if config.plugins.archives.enabled %}
 <div class="sidebar-content">
     <h5>Archives</h5>
-	{% include 'partials/archives.html.twig' with {'base_url':new_base_url} %}
+    {% include 'partials/archives.html.twig' with {'base_url':new_base_url} %}
 </div>
 {% endif %}
 

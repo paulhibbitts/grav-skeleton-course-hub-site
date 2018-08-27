@@ -1,3 +1,27 @@
+# v2.3.6
+## 08/24/2018
+
+1. [](#improved)
+    * Updated theme description
+
+# v2.3.5
+## 07/02/2018
+
+1. [](#improved)
+    * Updated 'advanced' course examples in theme '_demo' folder
+
+# v2.3.4
+## 06/18/2018
+
+1. [](#improved)
+    * Reorganized template files for better compatibility with future Open Course Hub themes
+
+# v2.3.3
+## 06/15/2018
+
+1. [](#new)
+    * Added templates and blueprints for PDFs and SpeakerDeck files
+
 # v2.3.2
 ## 05/18/2018
 

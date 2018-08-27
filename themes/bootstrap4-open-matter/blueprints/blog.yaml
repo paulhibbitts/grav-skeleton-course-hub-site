@@ -13,6 +13,34 @@ form:
 
           fields:
 
+            hero_title:
+              type: section
+              title: Hero Section
+              underline: true
+
+            header.hero_classes:
+              type: text
+              label: Hero Classes
+              markdown: true
+              description: 'There are several Hero class options that can be listed here (space separated):<br />`hero-small`, `hero-medium`, `hero-large`, `hero-fullscreen`'
+
+            header.hero_image:
+              type: filepicker
+              label: Hero Image
+              preview_images: true
+              description: 'If not specified, this defaults to the first image found in the page''s folder'
+
+            header.hero_scroll:
+              type: toggle
+              label: Hero Scroll
+              highlight:                 1
+              default:                   0
+              options:
+                  1:                     Yes
+                  0:                     No
+              validate:
+                  type:                  bool
+
             openmatter1:
                 type: section
                 title: "Appearance"

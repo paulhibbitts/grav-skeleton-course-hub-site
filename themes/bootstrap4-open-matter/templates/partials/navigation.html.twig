@@ -1,12 +1,25 @@
 {% set navbar_style = theme_var('navbar_style') %}
-{% set navbar_bgcolor = theme_var('navbar_bgcolor') %}
+{% set navbar_bg = theme_var('navbar_bg') %}
+{% set navbar_bg_color = theme_var('navbar_bg_color') %}
+{% set navbar_position = theme_var('navbar_position') %}
+{% set navbar_breakpoint = theme_var('navbar_breakpoint') %}
 
 {% set background_image = pages.find('/headerimage').media.images|first %}
-{% if background_image %}
+{% if background_image and not(navbar_position == 'fixed-bottom') %}
   <div class="myheader" style="background-image: url({{ background_image.url }});"></div>
 {% endif %}
 
-<nav class="navbar navbar-expand-md {{ navbar_style }}" style="background-color:{{ navbar_bgcolor }};" role="navigation">
+{% if navbar_bg_color %}
+    {% set navbar_bg_color = "style=\"background-color: #{navbar_bg_color}\"" %}
+    {% set navbar_bg = '' %}
+{% elseif navbar_bg and navbar_bg != 'default' %}
+    {% set navbar_bg_color = '' %}
+{% else %}
+    {% set navbar_bg = 'bg-primary' %}
+    {% set navbar_bg_color = '' %}
+{% endif %}
+
+<nav class="navbar {{ navbar_position }} navbar-expand-{{ navbar_breakpoint }} {{ navbar_style }} {{ navbar_bg }}" {{ navbar_bg_color }};" role="navigation">
     <div class="container">
         <a class="navbar-brand" href="{{ base_url == '' ? '/' : base_url_relative }}">{{ site.title|e('html') }}</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +30,7 @@
             <ul class="navbar-nav">
                 {% for page in pages.children.visible %}
                 {# Supress home menu link - hibbittsdesign.org #}
-                {% if not(theme_var('hidehomemenulink') and page.home()) %}
+                  {% if not(theme_var('hidehomemenulink') and page.home()) %}
                     {# Set all pages to use active page style - hibbittsdesign.org#}
                     {% set current_page = 'active' %}
                     {% if config.themes.bootstrap4.dropdown.enabled and page.children.visible.count > 0 %}
@@ -49,9 +62,12 @@
                 {# custom menu items check and display - hibbittsdesign.org #}
                 {% if theme_var('displaycustommenus.enabled') %}
 
-                  {% for mitem in theme_var('menu') %}
+                  {% for mitem in theme_var('custommenu') %}
                     <li class="nav-item active" >
-                      <a class="nav-link" href="{{ mitem.url }}" target="{{ mitem.target }}">
+                      {% if mitem.target == "_blank" %}
+                        {% set mclass = 'external-link' %}
+                      {% endif %}
+                      <a class="nav-link {{mclass}}" href="{{ mitem.url }}" target="{{ mitem.target }}">
                         {% if mitem.icon %}
                           <i class="fa fa-{{ mitem.icon }}"></i>
                         {% endif %}

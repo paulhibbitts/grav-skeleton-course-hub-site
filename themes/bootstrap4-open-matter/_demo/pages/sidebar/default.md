@@ -2,8 +2,13 @@
 title: Sidebar
 routable: false
 visible: false
+position: top
 ---
 
-#### Markdown Area
+##### Markdown Area
 
 Some text here.
+
+[plugin:page-inject](/twitterfeed)
+
+[plugin:page-inject](/embedlycard)

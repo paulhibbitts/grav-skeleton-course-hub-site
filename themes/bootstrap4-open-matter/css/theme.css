@@ -26,7 +26,7 @@ a:focus {
 */
 
 .myheader {
-  background-color: #464646;
+  background-color: #222222;
   background-repeat:no-repeat;
   -webkit-background-size:cover;
   -moz-background-size:cover;
@@ -66,7 +66,7 @@ body {
 }
 
 .header {
-    background-color: transparent!important;
+    background-color: #222222!important;
 }
 
 .alert {
@@ -137,11 +137,60 @@ h4, .h4, h5, .h5 {
     margin-bottom: 5.5px;
 }
 
+.header h1 {
+  text-shadow: 1px 1px 4px rgba(34,34,34,0.6);
+}
+
 .card-header .fa {
   transition: .3s transform ease-in-out;
 }
 .card-header .collapsed .fa {
   transform: rotate(-180deg);
+}
+
+img.left {
+  display:inline;
+  float:left;
+  margin:5px 15px 5px 0;
+}
+
+img.right {
+  float:right;
+  margin:5px 0 5px 15px;
+}
+
+img.center {
+  display:block;
+  margin:10px
+  auto;
+}
+
+figure.image-caption {
+    text-align: center;
+    margin: 1rem;
+}
+
+figure.image-caption figcaption {
+    opacity: 0.7;
+    font-size: 90%;
+}
+
+figure.figure-right {
+    float:right;
+    margin:5px 0 5px 15px;
+}
+
+figure.figure-left {
+    float: left;
+    margin:5px 15px 5px 0;
+}
+
+figure.caption-left figcaption {
+    text-align: left;
+}
+
+figure.caption-right figcaption {
+    text-align: right;
 }
 
 .up-arrow {
